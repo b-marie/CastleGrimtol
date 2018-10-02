@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Game">
+      <HintPath>..\Game\bin\Debug\netcoreapp2.0\Game.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
