@@ -15,6 +15,8 @@ namespace CastleGrimtol
             var userResponse = Console.ReadLine();
             Console.WriteLine(gameApi.StartGame(userResponse));
             Console.ReadLine();
+            Console.WriteLine(gameApi.GetGameHistory());
+            Console.Read();
         }
     }
 }

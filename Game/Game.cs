@@ -56,7 +56,7 @@ namespace Game
 
         internal string GetGameState()
         {
-            return "game state";
+            return this.gameState;
         }
 
     }

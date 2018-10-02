@@ -20,5 +20,11 @@ namespace Game
         }
 
 
+        public string GetGameHistory()
+        {
+            return _gameLog.Peek().GetGameState();
+        }
+
+
     }
 }
