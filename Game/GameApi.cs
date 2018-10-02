@@ -25,6 +25,14 @@ namespace Game
             return _gameLog.Peek().GetGameState();
         }
 
+        public string ProcessCommand(string userInput)
+        {
+            Game currentGame = _gameLog.Pop();
+            string response = currentGame.ProcessCommand(userInput);
+            _gameLog.Push(currentGame);
+            return response;
+
+        }
 
     }
 }

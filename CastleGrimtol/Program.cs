@@ -14,9 +14,17 @@ namespace CastleGrimtol
             Console.WriteLine("Would you like to play a game? (Yes No or Tutorial)");
             var userResponse = Console.ReadLine();
             Console.WriteLine(gameApi.StartGame(userResponse));
-            Console.ReadLine();
+            var newResponse = Console.ReadLine();
+            PlayGame(gameApi, newResponse);
             Console.WriteLine(gameApi.GetGameHistory());
-            Console.Read();
+            Console.ReadLine();
+        }
+
+        public static void PlayGame(GameApi gameApi, string userResponse)
+        {
+            Console.WriteLine(gameApi.ProcessCommand(userResponse));
+            string newResponse = Console.ReadLine();
+            PlayGame(gameApi, newResponse);
         }
     }
 }

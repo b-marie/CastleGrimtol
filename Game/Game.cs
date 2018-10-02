@@ -6,13 +6,13 @@ namespace Game
 {
     public class Game
     {
-        private Guid gameId { get; set; }
-        private string gameState { get; set; }
+        private Guid GameId { get; set; }
+        private string GameState { get; set; }
 
         internal Game(Guid gameId, string gameState)
         {
-            this.gameId = gameId;
-            this.gameState = gameState;
+            this.GameId = gameId;
+            this.GameState = gameState;
         }
 
         internal Game()
@@ -44,8 +44,10 @@ namespace Game
 
         }
 
-        internal void ProcessCommand(string userInput)
+        internal string ProcessCommand(string userInput)
         {
+
+            return "This is the command response";
 
         }
 
@@ -56,7 +58,7 @@ namespace Game
 
         internal string GetGameState()
         {
-            return this.gameState;
+            return this.GameState;
         }
 
     }
