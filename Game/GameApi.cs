@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Rooms;
 
 namespace Game
 {
@@ -14,9 +15,10 @@ namespace Game
         {
             Guid gameId = new Guid();
             String gameState = "running";
-            Game newGame = new Game(gameId, gameState);
+            Entry entry = new Entry();
+            Game newGame = new Game(gameId, gameState, entry);
             _gameLog.Push(newGame);
-            return _game.StartGame(userInput);
+            return _game.StartGame(userInput) + " " +  GetCurrentRoom(newGame);
         }
 
 
@@ -32,6 +34,11 @@ namespace Game
             _gameLog.Push(currentGame);
             return response;
 
+        }
+
+        public string GetCurrentRoom(Game game)
+        {
+            return game.CurrentRoom.ReturnRoom();
         }
 
     }

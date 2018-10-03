@@ -8,11 +8,13 @@ namespace Game
     {
         private Guid GameId { get; set; }
         private string GameState { get; set; }
+        internal Room CurrentRoom { get; set; }
 
-        internal Game(Guid gameId, string gameState)
+        internal Game(Guid gameId, string gameState, Room currentRoom)
         {
             this.GameId = gameId;
             this.GameState = gameState;
+            this.CurrentRoom = currentRoom;
         }
 
         internal Game()
