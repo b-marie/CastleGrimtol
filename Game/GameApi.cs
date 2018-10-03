@@ -16,7 +16,8 @@ namespace Game
             Guid gameId = new Guid();
             String gameState = "running";
             Entry entry = new Entry();
-            Game newGame = new Game(gameId, gameState, entry);
+            Player player = new Player("Steve");
+            Game newGame = new Game(gameId, gameState, entry, player);
             _gameLog.Push(newGame);
             return _game.StartGame(userInput) + " " +  GetCurrentRoom(newGame);
         }
@@ -27,10 +28,10 @@ namespace Game
             return _gameLog.Peek().GetGameState();
         }
 
-        public string ProcessCommand(string userInput)
+        public Room ProcessCommand(string userInput, Room room)
         {
             Game currentGame = _gameLog.Pop();
-            string response = currentGame.ProcessCommand(userInput);
+            Room response = currentGame.CurrentRoom.ProcessCommand(userInput, room);
             _gameLog.Push(currentGame);
             return response;
 
@@ -40,6 +41,5 @@ namespace Game
         {
             return game.CurrentRoom.ReturnRoom();
         }
-
     }
 }

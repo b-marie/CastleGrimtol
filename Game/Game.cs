@@ -9,12 +9,14 @@ namespace Game
         private Guid GameId { get; set; }
         private string GameState { get; set; }
         internal Room CurrentRoom { get; set; }
+        internal Player CurrentPlayer { get; set; }
 
-        internal Game(Guid gameId, string gameState, Room currentRoom)
+        internal Game(Guid gameId, string gameState, Room currentRoom, Player currentPlayer)
         {
             this.GameId = gameId;
             this.GameState = gameState;
             this.CurrentRoom = currentRoom;
+            this.CurrentPlayer = currentPlayer;
         }
 
         internal Game()
@@ -34,6 +36,7 @@ namespace Game
 
             if (userResponse == "no")
             {
+                Quit();
                 return "Thank you for playing!";
             }
 
@@ -46,15 +49,16 @@ namespace Game
 
         }
 
-        internal string ProcessCommand(string userInput)
-        {
+        //internal string ProcessCommand(string userInput)
+        //{
 
-            return "This is the command response";
+        //    return "This is the command response";
 
-        }
+        //}
 
         internal void Quit()
         {
+            Environment.Exit(0);
 
         }
 
